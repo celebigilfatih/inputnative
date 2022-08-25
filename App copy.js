@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import InsetShadow from "react-native-inset-shadow";
 import {
   StyleSheet,
   Text,
@@ -71,22 +72,36 @@ export default function App() {
             <Text style={{ fontSize: 20, color: "#000" }}>Giriş</Text>
           </TouchableOpacity>
         </NeoMorph>
-        <Morph>
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: 40,
-              width: 120,
-              height: 120,
-              padding: 10,
-              backgroundColor: "#EAECF0",
-              borderRadius: 120,
-            }}
+
+        <View
+          style={{
+            marginTop: 40,
+            width: 280,
+            height: 120,
+            backgroundColor: "#EAECF0",
+            borderRadius: 30,
+          }}
+        >
+          <InsetShadow
+            containerStyle={styles.shadow}
+            shadowRadius={3}
+            shadowOffset={3}
+            elevation={3}
+            shadowOpacity={0.3}
+            color="#000"
           >
-            <Text>Merhaba</Text>
-          </View>
-        </Morph>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignSelf: "center",
+                padding: 10,
+              }}
+            >
+              <Text>This view has an inset shadow!</Text>
+            </View>
+          </InsetShadow>
+        </View>
       </View>
     </View>
   );
@@ -149,26 +164,26 @@ const styles = StyleSheet.create({
 
   topShadow: {
     shadowOffset: {
-      width: -2,
-      height: -2,
+      width: -4,
+      height: -4,
     },
     shadowOpacity: 0.6,
-    shadowRadius: 2,
+    shadowRadius: 4,
     shadowColor: "#FAFBFF",
   },
   bottomShadow: {
     shadowOffset: {
-      width: 2,
-      height: 2,
+      width: 4,
+      height: 4,
     },
-    shadowOpacity: 0.4,
-    shadowRadius: 2,
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
     shadowColor: "#A6ABBD",
   },
   innerShadow: {
     shadowOffset: {
-      width: -2,
-      height: -2,
+      width: -4,
+      height: -4,
     },
     shadowOpacity: 1,
     shadowRadius: 1,
@@ -176,11 +191,14 @@ const styles = StyleSheet.create({
   },
   dropShadow: {
     shadowOffset: {
-      width: 1,
-      height: 1,
+      width: 4,
+      height: 4,
     },
     shadowOpacity: 1,
-    shadowRadius: 2,
+    shadowRadius: 4,
     shadowColor: "#A6ABBD",
+  },
+  shadow: {
+    borderRadius: 25,
   },
 });
